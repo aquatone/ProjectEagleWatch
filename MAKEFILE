@@ -1,0 +1,22 @@
+pew: pew.obj inject.obj logger.obj utils.obj
+	cl pew.obj inject.obj logger.obj utils.obj /link /ENTRY:start
+
+pew.obj: src\pew.c
+	cl /c src\pew.c 
+
+inject.obj: src\inject.c
+	cl /c src\inject.c
+
+logger.obj: src\logger.c
+	cl /c src\logger.c
+
+utils.obj: src\utils.c
+	cl /c src\utils.c
+
+all: pew
+	del *.obj
+
+clean:
+	del *.exe *.obj
+
+	
